@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>NJDOTNET - Home</title>
@@ -53,22 +53,15 @@
                     }
                     else {
                         $(".wait-container, .error-container", "#next-meeting-container").toggle();
-
-//                        $("#next-meeting-container .wait-container").css("display", "none");
-//                        $("#next-meeting-container .error-container").css("display", "");
                     }
 
                     if (futuremeeting != undefined && futuremeeting != null) {
                         var content = $("#eventTemplate").tmpl(nextmeeting.event);
                         content.appendTo("#future-meeting-container .event-container");
                         $(".wait-container, .event-container", "#future-meeting-container").toggle();
-//                        $("#future-meeting-container .wait-container").css("display", "none");
-//                        $("#future-meeting-container .event-container").css("display", "");
                     }
                     else {
                         $(".wait-container, .nodata-container", "#future-meeting-container").toggle();
-//                        $("#future-meeting-container .wait-container").css("display", "none");
-//                        $("#future-meeting-container #future-nodata-container").css("display", "");
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -78,10 +71,8 @@
         });
 
         function handleEventDisplayError(error) {
-
             var content = $("#errorTemplate").tmpl(error);
             content.appendTo("#next-meeting-container .error-container, #future-meeting-container .error-container");
-
             $(".wait-container, .error-container").toggle();
         }
 
@@ -137,7 +128,7 @@
                                                                 Infragistics<br />
                                                                 2 Commerce Drive<br />
                                                                 Cranbury, NJ 08512<br />
-                                                                <a href="/directions.aspx">Directions &amp; Maps</a>
+                                                                <a href="/directions.html">Directions &amp; Maps</a>
                                                             </div>
                                                         </td>
                                                         <td style="width: 50%; vertical-align: top">
