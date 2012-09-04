@@ -19,7 +19,7 @@
 
 
     $.getJSON(
-        "scripts/SimpleJsonProxy.ashx?u=" + $.URLEncode("http://api.mailchimp.com/1.2/?method=listSubscribe&apikey=0fd53182a10ca701f8645b1c76b78503-us1&id=4f6467275d&email_address=" + email + "&merge_vars=&output=json"),
+        "http://njdotnet.apphb.com/scripts/SimpleJsonProxy.ashx?u=" + $.URLEncode("http://api.mailchimp.com/1.2/?method=listSubscribe&apikey=0fd53182a10ca701f8645b1c76b78503-us1&id=4f6467275d&email_address=" + email + "&merge_vars=&output=json"),
         function (result) {
             if (result) {
                 $("#subscribe-email").removeAttr("disabled");
