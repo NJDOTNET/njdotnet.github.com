@@ -4,7 +4,7 @@
         <tr>
           
             <td>
-                <a href="default.aspx"><img alt="" src="images/header-logo.png" style="border-width: 0px;" /></a>
+                <a href="index.html"><img alt="" src="images/header-logo.png" style="border-width: 0px;" /></a>
             </td>
 
             <td style="width: 100%;">&nbsp;</td>
