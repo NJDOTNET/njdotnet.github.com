@@ -13,7 +13,6 @@ title: NJDOTNET - Directions
 <body>
     <div style="width: 956px; margin-left: auto; margin-right: auto;">
         <div style="background-color: #ffffff; border-top: solid 6px #bbde79;">
-
             {% include banner.inc %}
             {% include navigation.inc %}
 
@@ -28,39 +27,38 @@ title: NJDOTNET - Directions
                         <!-- main content pane -->
                         <td valign="top" width="100%">
                             <div id="main-content">
-                                
+
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <td>
-                                            <div style="background-color: #ffffff; margin: 4px; padding: 0px 10px 10px 10px;border: solid; border-width: 1px; border-color: #ffffff; text-align: left;">
+                                            <div style="background-color: #ffffff; margin: 4px; padding: 0px 10px 10px 10px; border: solid; border-width: 1px; border-color: #ffffff; text-align: left;">
 
-                                                <h2>Group Meeting Maps</h2><hr />
+                                                <h2>Meeting Location</h2>
+                                                <hr />
                                                 <p>
                                                     User group meetings are held in Infragistics corporate headquarters
-                                                    located just off Exit 8A of the New Jersey Turnpike in Cranbury, New Jersey.&nbsp; We 
-                                                    suggest using Microsoft Bing Maps to get directions to our location</p>
-                                                
-                                                <p style="color:Red">Note: We have found that other map services incorrectly locate the 
-                                                    meeting address several blocks away from actual location, therefore we provide only 
-                                                    the link to Bing below.</p>
+                                                    located just off Exit 8A of the New Jersey Turnpike in Cranbury, New Jersey.
+                                                </p>
 
-                                                <p><a href="http://www.bing.com/maps/?v=2&where1=2%20Commerce%20Dr%2C%20Cranbury%2C%20NJ%2008512-3501&encType=1" target="_blank">Bing Maps</a></p>
-                                                
                                                 <p>The address is:</p>
-                                                <p>2 Commerce Drive<br />Cranbury, NJ 08512-3501</p>
-                                                                                                
+                                                <p>2 Commerce Drive<br />
+                                                    Cranbury, NJ 08512-3501</p>
+
+                                                <div id="mapviewer">
+                                                    <iframe id="map" name="mapFrame" scrolling="no" width="640" height="512" frameborder="0" src="http://www.bing.com/maps/embed/?lvl=14&amp;cp=40.34761600000001~-74.490328&amp;sty=r&amp;draggable=true&amp;v=2&amp;dir=0&amp;where1=2+Commerce+Dr%2C+Cranbury%2C+NJ+08512&amp;form=LMLTEW&amp;pp=40.34761592745781~-74.49032753705978&amp;mkt=en-us&amp;emid=3f943385-a3fe-94d9-fb91-cec11ce45632&amp;w=640&amp;h=512"></iframe>
+                                                    <div id="LME_maplinks" style="line-height: 20px;"><a id="LME_largerMap" href="http://www.bing.com/maps/?mm_embed=map&amp;cp=40.34761600000001~-74.490328&amp;lvl=14&amp;sty=r&amp;where1=2+Commerce+Dr%2C+Cranbury%2C+NJ+08512&amp;form=LMLTEW" target="_blank">View Larger Map</a>&nbsp;<a id="LME_directions" href="http://www.bing.com/maps/?mm_embed=dir&amp;cp=40.34761600000001~-74.490328&amp;rtp=~pos.40.34761592745781_-74.49032753705978_2+Commerce+Dr%2C+Cranbury%2C+NJ+08512&amp;lvl=14&amp;sty=r&amp;form=LMLTEW" target="_blank">Get Directions</a>&nbsp;<a id="LME_birdsEye" href="http://www.bing.com/maps/?mm_embed=be&amp;cp=40.34761600000001~-74.490328&amp;lvl=18&amp;sty=b&amp;where1=2+Commerce+Dr%2C+Cranbury%2C+NJ+08512&amp;form=LMLTEW" target="_blank">View Bird's Eye</a></div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                 </table>
- 
+
                             </div>
                         </td>
 
                         <!-- right content -->
                         <td style="background-color: #eff7e0; padding-bottom: 22px; vertical-align: top">
                             <div style="padding: 0px; margin-left: 18px; margin-right: 18px;">
-   
                                 {% include social.inc %}
                                 {% include megaphone.inc %}
  
@@ -69,7 +67,7 @@ title: NJDOTNET - Directions
                     </tr>
                 </table>
             </div>
-        
+
             {% include footer.inc %}
 
         </div>
