@@ -5,91 +5,7 @@ title: NJDOTNET - Home
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>{{ page.title }}</title>
-
     {% include head.inc %}
-
-    <script  id="eventTemplate" type="text/x-jquery-tmpl">
-        <div>
-            <h3>
-                <span>${Date.parse(start_date).toString("dddd, MMMM d, h:mm tt")}</span>:&nbsp;<span>${extractContent(description, "#topic")}</span>
-                <div style="display:inline; float: right;">
-                    <a href="${url}" target="_blank"><img src="images\buttoncreate.png" alt"" border="0" /></a>
-                </div>
-            </h3>
-            <h4 class="presenter">Presenter(s):&nbsp;<span>${extractContent(description, "#presenter")}</span></h4>
-            <div class="description">{{html extractContent(description, "#abstract")}}</div>
-            <div class="presenters"><div class="bio"><blockquote id="speakerbio">{{html extractContent(description, "#bio")}}</blockquote></div></div>
-        </div>
-    </script>
-    
-    <script  id="errorTemplate" type="text/x-jquery-tmpl">
-        <div style="text-align: center;">
-            <h3>whoops!</h3>
-            <p>looks like we could not find any upcoming events,<br/>or less likely, we're having a problem fetching the meeting details</p>
-            <p style="font-size:8px;">${error_message}</p>
-        </div>
-    </script>
-
-    <script type="text/javascript">
-    <!--
-        $(function () {
-            var ebUri = 
-                        "http://njdotnet.apphb.com/scripts/SimpleJsonProxy.ashx?m=eb&u=" +
-                        $.URLEncode("http://www.eventbrite.com/json/event_search?app_key=ZWE5NmQxOTMxZDc5&date=Future&organizer=njdotnet&sort_by=date");
-
-            $.ajax({
-                url: ebUri,
-                success: function (result) {
-
-                    if (result.events.length < 2) {
-                        handleEventDisplayError(result.error);
-                        return;
-                    }
-
-                    var nextmeeting = result.events[1];
-                    var futuremeeting = result.events[2];
-
-                    if (nextmeeting != undefined && nextmeeting != null) {
-                        var content = $("#eventTemplate").tmpl(nextmeeting.event);
-                        content.appendTo("#next-meeting-container .event-container");
-                        $(".wait-container, .event-container", "#next-meeting-container").toggle();
-                    }
-                    else {
-                        $(".wait-container, .error-container", "#next-meeting-container").toggle();
-                    }
-
-                    if (futuremeeting != undefined && futuremeeting != null) {
-                        var content = $("#eventTemplate").tmpl(nextmeeting.event);
-                        content.appendTo("#future-meeting-container .event-container");
-                        $(".wait-container, .event-container", "#future-meeting-container").toggle();
-                    }
-                    else {
-                        $(".wait-container, .nodata-container", "#future-meeting-container").toggle();
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    handleEventDisplayError(errorThrown);
-                }
-            });
-        });
-
-        function handleEventDisplayError(error) {
-            var content = $("#errorTemplate").tmpl(error);
-            content.appendTo("#next-meeting-container .error-container, #future-meeting-container .error-container");
-            $(".wait-container, .error-container").toggle();
-        }
-
-        function extractContent(content, id) {
-            var element = $(id + ":first", $(content))[0];
-            if (element != undefined && element != null)
-            { return element.innerHTML; }
-            else 
-            { return ""; }
-        }
-
-    // -->
-    </script>
-
 </head>
 <body >
     <div style="width: 956px; margin-left: auto; margin-right: auto;">
@@ -118,8 +34,13 @@ title: NJDOTNET - Home
                                                 <div id="next-meeting-container">
                                                     <h2>Next User Group Meeting</h2><hr />
                                                     <div class="wait-container" style="text-align: center"><p><img alt="" src="images/wait22.gif" /></p><p>fetching the meeting details...</p></div>
-                                                    <div class="event-container" style="display:none"></div>
-                                                    <div class="error-container" style="display:none;"></div>
+                                                    <div class="error-container" style="display:none;">
+                                                        <h3>Whoops!</h3>
+                                                        <p>
+                                                            Looks like we could not find any upcoming events<br/>
+                                                            or we're having a problem fetching the meeting details
+                                                        </p>
+                                                    </div>
                                                 </div>
 
                                                 <table cellpadding="7">
@@ -139,9 +60,8 @@ title: NJDOTNET - Home
                                                                 Contact Us</h4>
                                                             <div style="padding: 3px;">
                                                                 Feel free to contact 
-                                                                <a href="mailto:jess@njdotnet.org">Jess Chadwick</a>, 
-                                                                <a href="mailto:todd@njdotnet.org">Todd Snyder</a>, or
-                                                                <a href="mailto:devin@njdotnet.org">Devin Rader</a>, 
+                                                                <a href="mailto:jess@njdotnet.org">Jess Chadwick</a> or
+                                                                <a href="mailto:todd@njdotnet.org">Todd Snyder</a>
                                                                 with questions about the user group, meeting information, sponsorships, speakers, etc. E-mail <a
                                                                     href="mailto:info@njdotnet.org?subject=%5BNJ.NET%5D%20Contact%20from%20Website">
                                                                     Information - NJDOTNET</a> for more information.
@@ -168,7 +88,6 @@ title: NJDOTNET - Home
                                                 <div id="future-meeting-container">
                                                     <h2>Future User Group Meeting</h2>
                                                     <div class="wait-container" style="text-align: center"><p><img alt="" src="images/wait22.gif" /></p><p>fetching the meeting details...</p></div>
-                                                    <div class="event-container" style="display:none"></div>
                                                     <div class="nodata-container" style="display:none;">
                                                         <table cellpadding="3">
                                                             <tr>
@@ -209,5 +128,36 @@ title: NJDOTNET - Home
         </div>
     </div>
 </body>
+    
+    <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="scripts/jQuery.tmpl.min.js" type="text/javascript"></script>
+<script src="scripts/date.js" type="text/javascript"></script>
+<script src="scripts/mailchimp.js" type="text/javascript"></script>
+<script src="scripts/urlEncode.js" type="text/javascript"></script>
+    <script src="scripts/site.js" type="text/javascript"></script>
+
+    <script id="eventTemplate" type="text/x-jquery-tmpl">
+        <div style="display:inline; float: right;">
+            <a href="${url}" target="_blank"><img src="images\buttoncreate.png" alt="" border="0" /></a>
+        </div>
+        <h3>${time}: ${title}</h3>
+        <h4 class="presenter">Presenter(s): ${presenter}</h4>
+        <div class="description">{{html description}}</div>
+        <blockquote id="speakerbio" class="bio">{{html bio}}</blockquote>
+    </script>
+        
+    <script type="text/javascript">
+        $(function () {
+            NJDOTNET.loadUpcomingMeetings()
+                .done(function (meetings) {
+                    $("#next-meeting-container").renderMeetings(meetings[0]);
+                    $("#future-meeting-container").renderMeetings(meetings.slice(1));
+                })
+                .fail(function () {
+                    $(".error-container").html($('#errorMessage').html());
+                    $(".wait-container, .error-container").toggle();
+                });
+        });
+    </script>
 
 </html>

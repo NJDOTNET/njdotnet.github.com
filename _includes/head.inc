@@ -10,3 +10,4 @@
 <script src="scripts/date.js" type="text/javascript"></script>
 <script src="scripts/mailchimp.js" type="text/javascript"></script>
 <script src="scripts/urlEncode.js" type="text/javascript"></script>
+<script src="scripts/site.js" type="text/javascript"></script>

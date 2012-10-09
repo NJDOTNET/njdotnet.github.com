@@ -7,48 +7,30 @@ title: NJDOTNET - Meetings
     <title>{{ page.title }}</title>
 
     {% include head.inc %}
+    
+    <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="scripts/jQuery.tmpl.min.js" type="text/javascript"></script>
+<script src="scripts/date.js" type="text/javascript"></script>
+<script src="scripts/mailchimp.js" type="text/javascript"></script>
+<script src="scripts/urlEncode.js" type="text/javascript"></script>
+<script src="scripts/site.js" type="text/javascript"></script>
 
-    <script  id="eventTemplate" type="text/x-jquery-tmpl">
-        <div>
-            <h3><span>${Date.parse(event.start_date).toString("dddd, MMMM d, h:mm tt")}</span>:&nbsp;<span>${extractContent(event.description, "#topic")}</span></h3>
-            <h4 class="presenter">Presenter(s):&nbsp;<span>${extractContent(event.description, "#presenter")}</span></h4>
-            <div class="description">{{html extractContent(event.description, "#abstract")}}</div>
-            <div class="presenters"><div class="bio"><blockquote id="speakerbio">{{html extractContent(event.description, "#bio")}}</blockquote></div></div>
-        </div>
+
+    <script id="eventTemplate" type="text/x-jquery-tmpl">
+        <h3>${time}: ${title}</h3>
+        <h4 class="presenter">Presenter(s): ${presenter}</h4>
+        <div class="description">{{html description}}</div>
+        <blockquote id="speakerbio" class="bio">{{html bio}}</blockquote>
     </script>
 
     <script type="text/javascript">
-    <!--
         $(function () {
-            var ebUri = "http://njdotnet.apphb.com/scripts/SimpleJsonProxy.ashx?u=" +
-                        $.URLEncode("http://www.eventbrite.com/json/organizer_list_events?app_key=ZWE5NmQxOTMxZDc5&id=346667");
-
-            $.ajax({
-                url: ebUri,
-                success: function (result) {
-
-                    if (result.events.length < 2) {
-                        return;
-                    }
-
-                    result.events = result.events.reverse();
-                    $("#eventTemplate").tmpl(result.events).appendTo("#past-meeting-container");
-
-                    $("#wait-container").css("display", "none");
-                    $("#past-meeting-container").css("display", "");                
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                }
-            });
+            NJDOTNET.loadPastMeetings()
+                .done(function(meetings) {
+                    $("#past-meeting-container").renderMeetings(meetings);
+                    $("#wait-container, #past-meeting-container").toggle();
+                });
         });
-
-        function extractContent(content, id) {
-            var element = $(id + ":first", $(content))[0];
-            if (element != undefined && element != null)
-            { return element.innerHTML; }
-            else { return ""; }
-        }
-    //-->
     </script>
 
 </head>
