@@ -129,14 +129,22 @@ title: NJDOTNET - Home
     </div>
 </body>
     
+    
+    <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="scripts/jQuery.tmpl.min.js" type="text/javascript"></script>
+<script src="scripts/date.js" type="text/javascript"></script>
+<script src="scripts/mailchimp.js" type="text/javascript"></script>
+<script src="scripts/urlEncode.js" type="text/javascript"></script>
+<script src="scripts/site.js" type="text/javascript"></script>
+
     <script id="eventTemplate" type="text/x-jquery-tmpl">
         <div style="display:inline; float: right;">
             <a href="${url}" target="_blank"><img src="images\buttoncreate.png" alt="" border="0" /></a>
         </div>
         <h3>${time}: ${title}</h3>
         <h4 class="presenter">Presenter(s): ${presenter}</h4>
-        <div class="description">{{html description}}</div>
-        <blockquote id="speakerbio" class="bio">{{html bio}}</blockquote>
+        <div class="description">${description}</div>
+        <blockquote id="speakerbio" class="bio">${bio}</blockquote>
     </script>
         
     <script type="text/javascript">

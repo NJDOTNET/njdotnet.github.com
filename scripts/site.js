@@ -36,7 +36,7 @@
             title: src.name,
             presenter: presenter.text(),
             bio: bio.text(),
-            description: details.html(),
+            description: details.text(),
             time: time,
         };
 
